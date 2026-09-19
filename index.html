@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09191f">
+  <meta name="description" content="Александра, тебе письмо. Маленькое волшебное приключение и приглашение в кино на субботу, 26 сентября, в 16:00.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Александра, тебе письмо · Совиная почта</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309191f'/%3E%3Cpath d='M32 8 38 26 56 32 38 38 32 56 26 38 8 32 26 26Z' fill='%23dabb7c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preload" href="./assets/castle.webp" as="image">
+  <script src="./music.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="night" aria-hidden="true"></div>
+  <div class="night-shade" aria-hidden="true"></div>
+  <div class="page-frame" aria-hidden="true"></div>
+  <div id="stars" aria-hidden="true"></div>
+  <div id="burst" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="#" id="home-link" aria-label="Совиная почта — в начало">
+      <span class="brand-symbol" aria-hidden="true">✦</span>
+      <span>СОВИНАЯ ПОЧТА<small>ОСОБОЕ ОТПРАВЛЕНИЕ</small></span>
+    </a>
+    <button id="music-toggle" class="sound-button" type="button" aria-pressed="false" aria-controls="music-panel" aria-label="Выключить фоновую музыку">
+      <span class="sound-icon" aria-hidden="true">♫</span><span id="music-label">Загружаем музыку…</span>
+    </button>
+  </header>
+
+
+  <main id="main">
+    <section id="arrival" class="screen arrival active" aria-labelledby="arrival-title">
+      <div class="arrival-copy">
+        <div class="eyebrow"><span class="mini-line"></span> ЛИЧНО В РУКИ <span class="tiny-star">✦</span></div>
+        <h1 id="arrival-title">Александра,<br><em>тебе письмо.</em></h1>
+        <p class="hero-description">Эта сова пролетела долгий путь,<br class="desktop-break"> чтобы доставить тебе кое-что особенное.</p>
+        <button class="gold-button" id="open-letter" type="button">Открыть конверт <span aria-hidden="true">↗</span></button>
+        <p class="whisper">Кажется, внутри немного волшебства.</p>
+      </div>
+      <div class="owl-space">
+        <span class="orbit orbit-one" aria-hidden="true"></span><span class="orbit orbit-two" aria-hidden="true"></span>
+        <button class="owl-button" id="owl-letter" type="button" aria-label="Принять письмо у совы и открыть конверт">
+          <img id="owl" src="./assets/owl.webp" alt="Белая сова приносит запечатанный конверт" width="1254" height="1254" fetchpriority="high">
+        </button>
+        <div class="delivery-note"><span aria-hidden="true">✧</span><span>АДРЕСАТ: АЛЕКСАНДРА<small>Отправлено с особым теплом</small></span></div>
+      </div>
+      <div class="arrival-bottom"><span>26 сентября 2026</span><span class="tiny-star" aria-hidden="true">✦</span><span>Суббота, 16:00</span></div>
+    </section>
+
+    <section id="letter" class="screen letter-screen" aria-labelledby="letter-title" hidden>
+      <div class="section-intro"><div class="eyebrow centered">ПИСЬМО НАШЛО СВОЙ АДРЕС</div><p>Некоторые приглашения заслуживают совы.</p></div>
+      <article class="letter-paper">
+        <div class="letter-rule"><span>ДЛЯ АЛЕКСАНДРЫ</span><span aria-hidden="true">✦</span><span>ОТ МАКСИМА</span></div>
+        <h2 id="letter-title" tabindex="-1">Александра,</h2>
+        <p>я подумал, что просто написать «пойдём в кино» — слишком обычно для тебя. Поэтому у этого приглашения есть сова, немного магии и один маленький секрет.</p>
+        <p>В субботу, <strong>26 сентября, в 16:00</strong>, хочу провести время с тобой: смотреть кино, делиться попкорном и потом ещё долго обсуждать любимые моменты.</p>
+        <p>С тобой даже обычный день становится историей, которую хочется запомнить. И для этого не нужна волшебная палочка — достаточно твоей улыбки.</p>
+        <p class="letter-highlight">Самое волшебное в этом плане — ты.</p>
+        <div class="signature"><span>С любовью,</span><strong>Максим</strong></div>
+        <span class="letter-mark" aria-hidden="true">М</span>
+      </article>
+      <div class="letter-actions"><p>Билеты спрятаны за тремя маленькими заклинаниями.<br>Разгадаем их?</p><button class="gold-button" id="start-quest" type="button">Найти билеты <span aria-hidden="true">✧</span></button></div>
+    </section>
+
+    <section id="quest" class="screen quest-screen" aria-labelledby="quest-title" hidden>
+      <div class="quest-topline"><button class="text-button" id="back-to-letter" type="button">← К письму</button><span class="eyebrow" id="quest-counter">ЗАКЛИНАНИЕ 01 / 03</span></div>
+      <div class="quest-card">
+        <div class="quest-progress" aria-label="Прогресс квеста"><span class="current">01</span><i></i><span>02</span><i></i><span>03</span></div>
+        <div class="quest-emblem" id="quest-emblem" aria-hidden="true">✧</div>
+        <h2 id="quest-title" tabindex="-1">Зажги немного света</h2>
+        <p class="quest-prompt" id="quest-prompt">Путь к билетам скрыт в темноте. Какое заклинание зажжёт свет на кончике палочки?</p>
+        <div id="quest-choices" class="quest-choices"></div>
+        <p class="quest-feedback" id="quest-feedback" role="status" aria-live="polite"></p>
+        <div class="quest-help"><button class="text-button" id="hint-button" type="button">Нужна подсказка?</button><p id="quest-hint" hidden></p></div>
+        <button class="gold-button next-button" id="next-step" type="button" disabled>Следующее заклинание <span aria-hidden="true">→</span></button>
+      </div>
+      <p class="quest-note">Здесь не бывает плохих волшебниц. Можно пробовать сколько угодно.</p>
+    </section>
+
+    <section id="tickets" class="screen tickets-screen" aria-labelledby="tickets-title" hidden>
+      <div class="eyebrow centered">ВСЕ ЗАКЛИНАНИЯ СРАБОТАЛИ <span aria-hidden="true">✦</span></div>
+      <h2 id="tickets-title" tabindex="-1">Суббота. Кино. <em>Мы.</em></h2>
+      <p class="tickets-subtitle">Два билета в маленькое приключение.<br>И самый лучший человек — рядом.</p>
+      <div class="ticket-pair">
+        <article class="cinema-ticket" aria-label="Билет-приглашение для Александры">
+          <div class="ticket-main"><div class="ticket-kicker"><span>ВОЛШЕБНЫЙ КИНОВЕЧЕР</span><span aria-hidden="true">✦</span></div><p class="ticket-for">БИЛЕТ-ПРИГЛАШЕНИЕ ДЛЯ</p><h3>Александры</h3><div class="ticket-data"><div><small>ДАТА</small><strong>26.09.2026</strong></div><div><small>ВРЕМЯ</small><strong>16:00</strong></div><div><small>МЕСТО</small><strong>Рядом с Максимом</strong></div></div></div>
+          <div class="ticket-stub"><span>БИЛЕТ</span><strong>01</strong><span class="stub-star" aria-hidden="true">✧</span><small>ИЗ ДВУХ</small></div>
+        </article>
+        <article class="cinema-ticket second-ticket" aria-label="Билет-приглашение для Максима">
+          <div class="ticket-main"><div class="ticket-kicker"><span>ВОЛШЕБНЫЙ КИНОВЕЧЕР</span><span aria-hidden="true">✦</span></div><p class="ticket-for">БИЛЕТ-ПРИГЛАШЕНИЕ ДЛЯ</p><h3>Максима</h3><div class="ticket-data"><div><small>ДАТА</small><strong>26.09.2026</strong></div><div><small>ВРЕМЯ</small><strong>16:00</strong></div><div><small>МЕСТО</small><strong>Рядом с Александрой</strong></div></div></div>
+          <div class="ticket-stub"><span>БИЛЕТ</span><strong>02</strong><span class="stub-star" aria-hidden="true">✧</span><small>ИЗ ДВУХ</small></div>
+        </article>
+      </div>
+      <p class="venue-note">Фильм и кинотеатр выберем вместе.<br><span>Это памятные приглашения, а не входные билеты кинотеатра.</span></p>
+      <div class="ticket-actions"><button class="gold-button" id="save-tickets" type="button">Сохранить билеты <span aria-hidden="true">↓</span></button><button class="text-button" id="reread" type="button">Перечитать письмо</button></div>
+      <p id="save-feedback" class="save-feedback" role="status"></p>
+      <p class="closing-note">Ради твоей улыбки стоило отправить сову.</p>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="journey" aria-label="Этапы приглашения"><span data-phase="arrival" class="current">01 <b>Письмо</b></span><i></i><span data-phase="quest">02 <b>Заклинания</b></span><i></i><span data-phase="tickets">03 <b>Два билета</b></span></div><span class="footer-note">МАЛЕНЬКАЯ МАГИЯ ДЛЯ ТЕБЯ</span></footer>
+
+  <aside class="music-panel" id="music-panel" aria-label="Музыка из Гарри Поттера" hidden>
+    <div class="music-heading"><div><strong>Hedwig’s Theme</strong><small>John Williams · WaterTower Music</small></div><button type="button" id="stop-music" class="close-button" aria-label="Остановить музыку и закрыть проигрыватель">×</button></div>
+    <div id="player-slot"></div>
+    <p id="music-status" role="status">Музыка начнётся автоматически. Если браузер попросит, открой конверт.</p>
+    <a href="https://www.youtube.com/watch?v=WUiI5aQcTow" target="_blank" rel="noopener noreferrer">Открыть музыку на YouTube ↗</a>
+  </aside>
+
+  <noscript><p class="no-script">Чтобы открыть письмо и пройти квест, включи JavaScript в браузере. Александра, Максим приглашает тебя в кино в субботу, 26 сентября 2026, в 16:00.</p></noscript>
+</body>
+</html>
