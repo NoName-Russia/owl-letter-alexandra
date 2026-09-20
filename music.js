@@ -6,7 +6,7 @@
   const panel = document.getElementById('music-panel');
   const status = document.getElementById('music-status');
 
-  const audio = new Audio('./assets/background-music.mp3');
+  const audio = new Audio('./21071.mp3');
   audio.loop = true;
   audio.preload = 'auto';
   audio.volume = 0.3;
@@ -52,7 +52,7 @@
     } catch (error) {
       playing = false;
       blocked = true;
-      status.textContent = 'Браузер не разрешил автозапуск со звуком. Коснись страницы или открой конверт — музыка включится.';
+      status.textContent = 'Коснись страницы или открой конверт — музыка включится.';
     }
 
     update();
@@ -127,7 +127,5 @@
   panel.hidden = false;
   update();
 
-  // Пытаемся запустить звук сразу. Если браузер блокирует autoplay,
-  // следующая пользовательская интеракция запускает музыку автоматически.
   play();
 })();
