@@ -1,6 +1,27 @@
 (() => {
   'use strict';
 
+  const preloadStyle = document.createElement('style');
+  preloadStyle.id = 'intro-preload-style';
+  preloadStyle.textContent = `
+    html.cinematic-intro-pending,html.cinematic-intro-pending body{overflow:hidden!important}
+    html.cinematic-intro-pending body>header,
+    html.cinematic-intro-pending body>main,
+    html.cinematic-intro-pending body>footer,
+    html.cinematic-intro-pending #music-panel{opacity:0!important;pointer-events:none!important}
+  `;
+  document.head.append(preloadStyle);
+  document.documentElement.classList.add('cinematic-intro-pending');
+
+  const introScript = document.createElement('script');
+  introScript.src = './intro.js?v=1';
+  introScript.async = false;
+  introScript.onerror = () => {
+    document.documentElement.classList.remove('cinematic-intro-pending');
+    preloadStyle.remove();
+  };
+  document.head.append(introScript);
+
   const button = document.getElementById('music-toggle');
   const label = document.getElementById('music-label');
   const panel = document.getElementById('music-panel');
