@@ -40,13 +40,15 @@
 
     .intro-copy{position:absolute;left:50%;top:7.5%;transform:translateX(-50%);z-index:6;text-align:center;width:min(88vw,640px);opacity:0;animation:introCopy 1.2s ease .35s forwards}
     .intro-copy small{display:block;color:#d7bd87;letter-spacing:.25em;font-size:11px;text-transform:uppercase;margin-bottom:10px}
-    .intro-copy strong{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(28px,4vw,48px);letter-spacing:.01em;text-shadow:0 7px 25px #000}
+    .intro-copy strong{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,4.4vw,52px);letter-spacing:.01em;text-shadow:0 7px 25px #000}
 
-    .intro-owl-flight{position:absolute;z-index:5;width:min(60vw,590px);left:-66vw;top:19%;transform:rotate(-7deg) scale(.72);animation:owlFlyIn 3.05s cubic-bezier(.18,.71,.23,1) .72s forwards}
-    .intro-owl-flight img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 23px rgba(0,0,0,.63));animation:owlWingFloat 1.05s ease-in-out .7s 3 alternate}
-    .intro-owl-flight.is-delivered{animation:owlFlyAway 1.45s cubic-bezier(.55,.08,.73,.16) forwards}
+    .intro-owl-flight{position:absolute;z-index:5;width:min(60vw,590px);left:-66vw;top:19%;transform:rotate(-7deg) scale(.72);animation:owlFlyIn 3.05s cubic-bezier(.18,.71,.23,1) .72s forwards;cursor:pointer;border-radius:40%;outline:none}
+    .intro-owl-flight img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 23px rgba(0,0,0,.63));animation:owlWingFloat 1.05s ease-in-out .7s 3 alternate;transition:filter .25s,transform .25s}
+    .intro-owl-flight:hover img,.intro-owl-flight:focus-visible img{filter:drop-shadow(0 20px 23px rgba(0,0,0,.63)) drop-shadow(0 0 22px rgba(231,207,152,.32));transform:scale(1.025)}
+    .intro-owl-flight.is-delivered{pointer-events:none;animation:owlFlyAway 1.45s cubic-bezier(.55,.08,.73,.16) forwards}
 
-    .intro-envelope{position:absolute;left:50%;top:58%;z-index:7;width:min(41vw,300px);aspect-ratio:1.52;transform:translate(-50%,-50%) scale(.35) rotate(5deg);opacity:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 25px 30px rgba(0,0,0,.48));animation:envelopeArrive 1.25s cubic-bezier(.18,.84,.31,1.1) 3.1s forwards}
+    .intro-envelope{position:absolute;left:50%;top:58%;z-index:7;width:min(41vw,300px);aspect-ratio:1.52;transform:translate(-50%,-50%) scale(.35) rotate(5deg);opacity:0;pointer-events:none;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 25px 30px rgba(0,0,0,.48))}
+    .intro-envelope.is-delivered{pointer-events:auto;animation:envelopeArrive 1.25s cubic-bezier(.18,.84,.31,1.1) forwards}
     .intro-envelope:focus-visible{outline:2px solid #f1d397;outline-offset:11px}
     .intro-envelope-base{position:absolute;inset:0;background:linear-gradient(145deg,#ead9b8,#c9ad79);border:1px solid rgba(100,76,43,.42);border-radius:3px;overflow:hidden}
     .intro-envelope-base:before,.intro-envelope-base:after{content:'';position:absolute;bottom:-1px;width:72%;height:100%;background:linear-gradient(135deg,transparent 49%,rgba(120,91,50,.18) 50%,transparent 51%)}
@@ -61,7 +63,8 @@
     .intro-letter-peek:before{content:'Александра, тебе письмо';position:absolute;left:10%;right:10%;top:20%;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(15px,2.5vw,22px);line-height:1.2;color:#56452f;text-align:center}
     .intro-letter-peek:after{content:'✦';position:absolute;left:50%;bottom:12%;transform:translateX(-50%);color:#8a7045;font-size:18px}
 
-    .intro-hint{position:absolute;left:50%;bottom:6.5%;transform:translateX(-50%);z-index:8;text-align:center;opacity:0;animation:hintIn .85s ease 4.05s forwards;white-space:nowrap}
+    .intro-hint{position:absolute;left:50%;bottom:6.5%;transform:translateX(-50%);z-index:8;text-align:center;opacity:0;white-space:nowrap;transition:opacity .35s}
+    .intro-hint.is-visible{opacity:1}
     .intro-hint span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(218,187,124,.24);border-radius:999px;background:rgba(4,17,23,.56);backdrop-filter:blur(8px);color:#dbc28f;font-size:12px;letter-spacing:.08em}
     .intro-hint i{width:5px;height:5px;border-radius:50%;background:#e7cf98;box-shadow:0 0 14px #e7cf98;animation:hintPulse 1.5s ease infinite}
     .intro-skip{position:absolute;right:22px;bottom:19px;z-index:9;border:0;border-bottom:1px solid rgba(225,205,164,.34);background:transparent;color:#9cb0b1;padding:5px 0;font:500 11px Manrope,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
@@ -75,7 +78,6 @@
     @keyframes owlWingFloat{from{transform:translateY(-5px) rotate(-1.5deg)}to{transform:translateY(8px) rotate(1.5deg)}}
     @keyframes owlFlyAway{0%{left:24%;top:25%;opacity:1;transform:rotate(0) scale(.88)}100%{left:112%;top:6%;opacity:.2;transform:rotate(14deg) scale(.62)}}
     @keyframes envelopeArrive{0%{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(7deg)}55%{opacity:1;transform:translate(-50%,-50%) scale(1.08) rotate(-2deg)}100%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}}
-    @keyframes hintIn{to{opacity:1}}
     @keyframes hintPulse{50%{transform:scale(1.8);opacity:.45}}
     @keyframes sparkDrift{0%,100%{opacity:0;transform:translate3d(0,13px,0) scale(.6)}35%{opacity:.8}70%{opacity:.25;transform:translate3d(var(--dx),-34px,0) scale(1.15)}}
     @keyframes introFadeOut{0%{opacity:1;filter:blur(0)}100%{opacity:0;filter:blur(9px);visibility:hidden}}
@@ -96,8 +98,6 @@
     @media(prefers-reduced-motion:reduce){
       #cinematic-intro *,#cinematic-intro *:before,#cinematic-intro *:after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important}
       .intro-owl-flight{left:24%;top:25%;opacity:1;transform:scale(.88)}
-      .intro-envelope{opacity:1;transform:translate(-50%,-50%) scale(1)}
-      .intro-hint{opacity:1}
     }
   `;
   document.head.append(style);
@@ -108,18 +108,18 @@
   scene.innerHTML = `
     <div class="intro-sky" aria-hidden="true"></div>
     <div class="intro-moon" aria-hidden="true"></div>
-    <div class="intro-copy" aria-hidden="true"><small>Совиная почта · особое отправление</small><strong>Кажется, к твоему окну кто-то летит…</strong></div>
+    <div class="intro-copy" aria-hidden="true"><small>Совиная почта · особое отправление</small><strong>Тебе письмо от любимого</strong></div>
     <div class="intro-room" aria-hidden="true">
       <div class="intro-window-wrap">
         <div class="intro-curtain left"></div><div class="intro-curtain right"></div>
         <div class="intro-window"></div><div class="intro-sill"></div>
       </div>
     </div>
-    <div class="intro-owl-flight" aria-hidden="true"><img src="./assets/owl.webp" alt=""></div>
+    <div class="intro-owl-flight" role="button" tabindex="0" aria-label="Получить письмо от совы"><img src="./assets/owl.webp" alt="Сова с письмом"></div>
     <button class="intro-envelope" type="button" aria-label="Открыть письмо для Александры">
       <span class="intro-letter-peek"></span><span class="intro-envelope-base"></span><span class="intro-flap"></span><span class="intro-seal">М</span>
     </button>
-    <div class="intro-hint" aria-hidden="true"><span><i></i> Письмо доставлено</span></div>
+    <div class="intro-hint" aria-live="polite"><span><i></i><b class="intro-hint-text">Нажми на сову, чтобы получить письмо</b></span></div>
     <button class="intro-skip" type="button">Пропустить</button>
   `;
 
@@ -137,15 +137,27 @@
 
   const envelope = scene.querySelector('.intro-envelope');
   const owl = scene.querySelector('.intro-owl-flight');
+  const hint = scene.querySelector('.intro-hint');
+  const hintText = scene.querySelector('.intro-hint-text');
   const skip = scene.querySelector('.intro-skip');
+  let delivered = false;
   let ending = false;
 
-  function revealLetter() {
-    if (ending) return;
-    ending = true;
+  function deliverLetter() {
+    if (delivered || ending) return;
+    delivered = true;
     window.invitationMusic?.startAfterGesture?.();
-    envelope.classList.add('open');
+    envelope.classList.add('is-delivered');
     owl.classList.add('is-delivered');
+    hintText.textContent = 'Письмо доставлено · нажми на него';
+    hint.classList.add('is-visible');
+    setTimeout(() => envelope.focus({ preventScroll: true }), reduceMotion ? 0 : 950);
+  }
+
+  function revealLetter() {
+    if (ending || !delivered) return;
+    ending = true;
+    envelope.classList.add('open');
 
     const openExistingLetter = () => {
       const button = document.getElementById('open-letter');
@@ -163,9 +175,18 @@
     }, reduceMotion ? 50 : 2150);
   }
 
+  owl.addEventListener('click', deliverLetter);
+  owl.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      deliverLetter();
+    }
+  });
   envelope.addEventListener('click', revealLetter);
-  skip.addEventListener('click', revealLetter);
+  skip.addEventListener('click', () => {
+    if (!delivered) deliverLetter();
+    revealLetter();
+  });
 
-  // После прилёта письмо раскрывается само, если пользователь ничего не нажал.
-  setTimeout(revealLetter, reduceMotion ? 120 : 5200);
+  setTimeout(() => hint.classList.add('is-visible'), reduceMotion ? 0 : 3600);
 })();
