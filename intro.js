@@ -146,7 +146,6 @@
   function deliverLetter() {
     if (delivered || ending) return;
     delivered = true;
-    window.invitationMusic?.startAfterGesture?.();
     envelope.classList.add('is-delivered');
     owl.classList.add('is-delivered');
     hintText.textContent = 'Письмо доставлено · нажми на него';
@@ -157,6 +156,7 @@
   function revealLetter() {
     if (ending || !delivered) return;
     ending = true;
+    window.invitationMusic?.startAfterGesture?.();
     envelope.classList.add('open');
 
     const openExistingLetter = () => {
