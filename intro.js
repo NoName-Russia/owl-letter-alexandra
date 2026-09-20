@@ -108,7 +108,7 @@
   scene.innerHTML = `
     <div class="intro-sky" aria-hidden="true"></div>
     <div class="intro-moon" aria-hidden="true"></div>
-    <div class="intro-copy" aria-hidden="true"><small>Совиная почта · особое отправление</small><strong>Тебе письмо от любимого</strong></div>
+    <div class="intro-copy" aria-hidden="true"><small>Почта любви · особое отправление</small><strong>Тебе письмо от любимого</strong></div>
     <div class="intro-room" aria-hidden="true">
       <div class="intro-window-wrap">
         <div class="intro-curtain left"></div><div class="intro-curtain right"></div>
